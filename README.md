@@ -18,13 +18,9 @@ Event Driven Applications - Package tracking system using TCP, socket.io, node, 
 
 #### <center> [github actions](https://github.com/fizzo999/caps/actions) </center>
 
-<!-- #### <center> [github pull request](https://github.com/fizzo999/server-deployment-practice/pull/1) </center> -->
-
-#### <center> [ci/cd - github](https://github.com/fizzo999/caps/actions/runs/) </center>
+#### <center> [ci/cd - github](https://github.com/fizzo999/caps/actions/runs/809042138) </center>
 
 #### <center> [merged pull request - github](https://github.com/fizzo999/caps/pull/2) </center>
-
-<!-- ![Cont Integration Cont Deploy](src/continuousIntegrationContinuousDepolyment002.png) -->
 
 ## <center> UML DIAGRAM </center>
 
