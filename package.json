@@ -1,0 +1,26 @@
+{
+  "name": "caps",
+  "version": "1.0.0",
+  "description": "Event Driven Applications - Package tracking system using TCP, socket.io, node, express",
+  "main": "index.js",
+  "scripts": {
+    "start": "node hub.js",
+    "test": "jest --coverage --verbose"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fizzo999/caps.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fizzo999/caps/issues"
+  },
+  "homepage": "https://github.com/fizzo999/caps#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "faker": "^5.5.3",
+    "jest": "^26.6.3"
+  }
+}
