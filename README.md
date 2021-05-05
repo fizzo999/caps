@@ -41,14 +41,14 @@ https://github.com/fizzo999/caps.git
 PORT - Port Number
 STORE_NAME=Olympia
 
-npm install
+#### npm install
 (to install dependencies: express, dotenv, supertest, jest, faker)
 
-Running the app
+#### Running the app
 npm run start
 produces console.log ' s of a stream of faker generated orders as they are fired from the event handler (events.emit) after having been declared with events.on
 
-Tests
+#### Tests
 Unit Tests: npm run test
 
 ## Architecture
