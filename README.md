@@ -12,25 +12,24 @@ Event Driven Applications - Package tracking system using TCP, socket.io, node, 
 
 #### <center> [heroku deployed site](https://fizzo-caps.herokuapp.com/) </center>
 
-![console.log printout of app running](./assets/1869console-log.PNG)
+![console.log printout of app running](./assets/1929console-logs.PNG)
+
 ![console.log printout of app running](./assets/1870console-log.PNG)
-![console.log printout of app running](./assets/1871console-log.PNG)
+
+<!-- ![console.log printout of app running](./assets/1871console-log.PNG) -->
 
 #### <center> [github actions](https://github.com/fizzo999/caps/actions) </center>
 
-<!-- #### <center> [github pull request](https://github.com/fizzo999/server-deployment-practice/pull/1) </center> -->
-
-#### <center> [ci/cd - github](https://github.com/fizzo999/caps/actions/runs/) </center>
+#### <center> [ci/cd - github](https://github.com/fizzo999/caps/actions/runs/809042138) </center>
 
 #### <center> [merged pull request - github](https://github.com/fizzo999/caps/pull/2) </center>
 
-<!-- ![Cont Integration Cont Deploy](src/continuousIntegrationContinuousDepolyment002.png) -->
-
 ## <center> UML DIAGRAM </center>
 
-<!-- ![web request response cycle diagram 001](./src/assets/1693signup-UMI.PNG)
-![web request response cycle diagram 002](./src/assets/1692signin-UMI.PNG)
-![web request response cycle diagram 003](./src/assets/1691users-UMI.PNG) -->
+<!-- ![web request response cycle diagram 001](./src/assets/1693signup-UMI.PNG) -->
+<!-- ![web request response cycle diagram 002](./src/assets/1692signin-UMI.PNG) -->
+
+![cap - project UML](./assets/1930UMI.PNG)
 
 ## Overview
 
@@ -45,14 +44,17 @@ https://github.com/fizzo999/caps.git
 PORT - Port Number
 STORE_NAME=Olympia
 
-npm install
+#### npm install
+
 (to install dependencies: express, dotenv, supertest, jest, faker)
 
-Running the app
+#### Running the app
+
 npm run start
 produces console.log ' s of a stream of faker generated orders as they are fired from the event handler (events.emit) after having been declared with events.on
 
-Tests
+#### Tests
+
 Unit Tests: npm run test
 
 ## Architecture
