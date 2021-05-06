@@ -1,50 +1,21 @@
 'use strict';
 
 require('dotenv').config();
-const HOST = process.env.HOST || 'http://localhost:3000';
+const SERVER_URL = process.env.SERVER_URL || 'http://localhost:3000';
 const io = require('socket.io-client');
-const socket = io.connect(`${HOST}/caps`);
+const socket = io.connect(`${SERVER_URL}/caps`);
 
 socket.on('pickup', payload => {
+
   setTimeout(() => {
-    console.log(`pickedup package, now in transit ${payload.orderId}`);
+    console.log('================ DriverPickup FIRED ==================');
+    console.log(`DRIVER: picked up [ORDER_ID]: ${payload.order.orderId}`);
     socket.emit('in-transit', payload);
-  }, 1500);
+  }, 2000);
+
   setTimeout(() => {
-    console.log('Package delivered', payload);
+    console.log('=============== DriverDelivered FIRED =================');
+    console.log(`DRIVER: delivered [ORDER_ID]: ${payload.order.orderId}`, payload);
     socket.emit('delivered', payload);
-  }, 3000);
+  }, 4000);
 });
-// Drivers Module
-// Monitor the system for events …
-// On the ‘pickup’ event …
-// Wait 1 second
-// Log “DRIVER: picked up [ORDER_ID]” to the console.
-// Emit an ‘in-transit’ event with the payload you received
-// Wait 3 seconds
-// Log “delivered” to the console
-// Emit a ‘delivered’ event with the same payload
-
-// function handleDriverPickup(payload) {
-//   console.log('================ DriverPickup FIRED ==================', payload);
-// }
-
-// events.on('pickup', handleDriverPickup);
-
-// function handleDriverPickup(payload) {
-//   setTimeout( () => {
-//     // console.log('================ DriverPickup FIRED ==================', payload);
-//     console.log(`===================DRIVER: pick up order ${payload.orderId}`);
-//     events.emit('in-transit', payload);
-//   }, 2000);
-
-//   setTimeout( () => {
-//     console.log('===================DELIVERED SUCCESSFULLY================', payload);
-//     events.emit('delivery', payload);
-//   }, 3000);
-// }
-
-// events.on('pickup', handleDriverPickup);
-
-
-// module.exports = handleDriverPickup();
