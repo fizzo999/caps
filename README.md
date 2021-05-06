@@ -50,7 +50,16 @@ STORE_NAME=Olympia
 
 #### Running the app
 
-npm run start
+created custom run commands to make it easier to start the app:
+
+- you will need 4 ubuntu (WSL) terminals (split pane) - press shift atl + to split horizontally
+- in the first terminal type **_npm run s1_** which will run "node apps/caps.js"
+- in the first terminal type **_npm run s2_** which will run "node apps/vendor.js"
+- in the first terminal type **_npm run s3_** which will run "node apps/driver.js"
+- in the first terminal type **_npm run s4_** which will run "node apps/caps-api.js"
+
+ref see package.json for the custom scripts
+
 produces console.log ' s of a stream of faker generated orders as they are fired from the event handler (events.emit) after having been declared with events.on
 
 #### Tests
