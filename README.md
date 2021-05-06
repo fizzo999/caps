@@ -31,6 +31,12 @@ Event Driven Applications - Package tracking system using TCP, socket.io, node, 
 
 ![cap - project UML](./assets/1930UMI.PNG)
 
+<hr>
+
+## CREDITS TO LYDIA MINEHAN-TUBIC FOR THE DIAGRAM BELOW
+
+![cap - project UML version2](./assets/1946-UML-Lydia-Minehan-Tubic.PNG)
+
 ## Overview
 
 Event Driven Applications - Package tracking system using TCP, socket.io, node, express
@@ -50,13 +56,15 @@ STORE_NAME=Olympia
 
 #### Running the app
 
-created custom run commands to make it easier to start the app:
+I created custom run commands to make it easier to start the app:
 
+```
 - you will need 4 ubuntu (WSL) terminals (split pane) - press shift atl + to split horizontally
 - in the first terminal type **_npm run s1_** which will run "node apps/caps.js"
 - in the first terminal type **_npm run s2_** which will run "node apps/vendor.js"
 - in the first terminal type **_npm run s3_** which will run "node apps/driver.js"
 - in the first terminal type **_npm run s4_** which will run "node apps/caps-api.js"
+```
 
 ref see package.json for the custom scripts
 
@@ -64,16 +72,16 @@ produces console.log ' s of a stream of faker generated orders as they are fired
 
 #### Tests
 
-Unit Tests: npm run test
+Unit Tests: npm run test (coming soon)
 
 ## Architecture
 
-node.js based server that uses express library and dotenv package
-tests performed with jest and supertest
+- socket.io server (caps) and socket.io-client (vendor, driver) and express based api server that also is a socket.io-client all built with node.js socket.io socket.io-client express dotenv cors faker
+- tests performed with jest and supertest
 
 ## Change Log
 
-05-03-2021 10:59pm - Application now has a fully-functional order generation on driver.js, vendor,js and all linked through hub.js.
+05-05-2021 7:59pm - Application now has a fully-functional order generation on driver.js, vendor,js and all linked through caps.js.
 
 ## Credits and Collaborations
 
@@ -88,3 +96,9 @@ Estimate of time needed to complete: 2 hours
 Start time: 8:00 pm
 Finish time: 11:00 pm
 Actual time needed to complete: 3 hours
+
+Number and name of feature: refactor and test in terminal
+Estimate of time needed to complete: 2 hours
+Start time: 5:00 pm
+Finish time: 9:00 pm
+Actual time needed to complete: 4 hours
