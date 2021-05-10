@@ -16,11 +16,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true}));
 // ========================================================================================
 
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "http://localhost:4000/caps"); // update to match the domain you will make the request from
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  next();
-});
+// app.use(function(req, res, next) {
+//   res.header("Access-Control-Allow-Origin", "http://localhost:4000/caps"); // update to match the domain you will make the request from
+//   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+//   next();
+// });
 
 // ========================================================================================
 
@@ -36,7 +36,7 @@ app.post('/pickup', (req, res) => {
 
   socket.emit('pickup', package2Bprocessed);
   // res.status(200).send('EVENT: pickup scheduled', package2Bprocessed.orderID || 'no order number is available at this time');
-  res.status(200).send('EVENT: pickup scheduled', package2Bprocessed);
+  res.status(200).json('EVENT: pickup scheduled', package2Bprocessed);
 });
 
 app.get('/', (req, res) => {
@@ -48,7 +48,7 @@ app.use('*', (req, res) => res.status(404).send('sorry that route does NOT exist
 
 function CustomOrder() {
   this.timeStamp = new Date(),
-  this.storename = process.env.STORE_ID,
+  this.storename = 'onlineOrder',
   this.orderId = faker.datatype.uuid(),
   this.customerName = faker.name.findName(),
   this.customerAddressStreet = faker.Address.streetAddress(),
@@ -58,11 +58,5 @@ function CustomOrder() {
   this.customerPhoneNumber = faker.phone_number(),
   this.customerEmail = faker.internet.email()
 }
-setTimeout(() => {
-  console.log('=============== DriverDelivered FIRED =================');
-  console.log(`DRIVER: delivered [ORDER_ID]:`);
-  socket.emit('delivered');
-  
-}, 4000);
 
 app.listen(API_SERVER_PORT, () => console.log(`API SERVER up at ${API_SERVER_PORT}`));
