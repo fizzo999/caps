@@ -61,6 +61,7 @@ driverSocket.on('receiveAllMessages', payload => {
   }  
   Object.keys(payload.id).forEach(id => {
     driverSocket.emit('confirmReceivedAll', {id, payload: payload})
+  });
 });
 
 

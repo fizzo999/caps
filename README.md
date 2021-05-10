@@ -61,10 +61,11 @@ I created custom run commands to make it easier to start the app:
 ```
 - you will need 4 ubuntu (WSL) terminals (split pane) - press shift atl + to split horizontally
 - START FROM THE CAPS DIRECTORY
+
 - in the first terminal type npm run s1 which will run "node apps/caps.js"
 - in the first terminal type npm run s2 which will run "node apps/vendor.js"
 - in the first terminal type npm run s3 which will run "node apps/driver.js"
-- in the first terminal type npm run s4 which will run "node apps/caps-api.js"
+- in the first terminal type npm run s4 which will run "node apps/vendor2.js"
 ```
 
 ref see package.json for the custom scripts

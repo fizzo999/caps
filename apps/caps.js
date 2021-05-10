@@ -10,7 +10,12 @@ const uuid = require('uuid').v4;
 
 const allLogons = [];
 const queue = {
-  vendorID_2504: {
+  ['acme-widgets']: {
+    pickup: {},
+    inTransit: {},
+    delivered: {}
+  },
+  ['1-206-flowers']: {
     pickup: {},
     inTransit: {},
     delivered: {}
@@ -19,7 +24,13 @@ const queue = {
     pickup: {},
     inTransit: {},
     delivered: {}
-  }
+  },
+  ['onlineOrder']: {
+    pickup: {},
+    inTransit: {},
+    delivered: {}
+  },
+
 };
 
 // io.on('connection', socket => {
@@ -63,6 +74,7 @@ function helperLoggerFunction (event, payload) {
   };
   caps.emit('send', capsMsgObjlarge);
   // save info to queue
+
   queue[payload.order.storename][event][id] = capsMsgObjSmall;
 }
 
