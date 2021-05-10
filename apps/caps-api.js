@@ -9,11 +9,21 @@ const SERVER_URL = process.env.SERVER_URL || 'http://localhost:3000';
 
 const socket = io.connect(`${SERVER_URL}/caps`);
 const app = express();
-const PORT2 = process.env.PORT2 || 3001;
+const API_SERVER_PORT = process.env.API_SERVER_PORT || 3333;
 
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true}));
+// ========================================================================================
+
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "http://localhost:4000/caps"); // update to match the domain you will make the request from
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
+// ========================================================================================
+
 
 socket.on('connection', socket => {
   console.log('============HURRAY WE ARE CONNECTED TO==============', socket.id);
@@ -34,7 +44,7 @@ app.get('/', (req, res) => {
 });
 
 app.use('*', (req, res) => res.status(404).send('sorry that route does NOT exist'));
-app.use((err, req, res) => res.status(500).send('there was an error'));
+// app.use((err, req, res) => res.status(500).send('there was an error'));
 
 function CustomOrder() {
   this.timeStamp = new Date(),
@@ -52,7 +62,7 @@ setTimeout(() => {
   console.log('=============== DriverDelivered FIRED =================');
   console.log(`DRIVER: delivered [ORDER_ID]:`);
   socket.emit('delivered');
-  app.listen(PORT2, () => console.log(`API SERVER up at ${PORT2}`));
-
+  
 }, 4000);
 
+app.listen(API_SERVER_PORT, () => console.log(`API SERVER up at ${API_SERVER_PORT}`));

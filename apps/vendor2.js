@@ -7,15 +7,15 @@ const io = require('socket.io-client');
 const capsSocket = io.connect(`${SERVER_URL}/caps`);
 const vendorSocket = io.connect(`${SERVER_URL}/vendor`);
 
-const VENDOR1_ID = process.env.VENDOR1_ID || '1-206-flowers';
+const VENDOR2_ID = process.env.VENDOR2_ID || 'acme-widgets';
 const orderQueue = [];
 const vendorSideMessageQueue = [];
 
-capsSocket.emit('join', VENDOR1_ID);
+capsSocket.emit('join', VENDOR2_ID);
 capsSocket.on('joinConfirmed', room => {
   console.log('YES WE JOINED THE ROOM: ', room);
 });
-vendorSocket.emit('join', VENDOR1_ID);
+vendorSocket.emit('join', VENDOR2_ID);
 
 capsSocket.on('send', payload => {
   vendorSideMessageQueue.push(payload);
@@ -25,7 +25,7 @@ capsSocket.on('send', payload => {
 
 let getAllMessages = {
   event:'pickup',
-  client_id: '1-206-flowers'
+  client_id: VENDOR2_ID
 };
 
 vendorSocket.emit('getAll', getAllMessages);
@@ -42,7 +42,8 @@ vendorSocket.on('receiveAllMessages', payload => {
   });
 });
 
-generateNewOrder('1-206-flowers');
+
+generateNewOrder('acme-widgets');
 
 capsSocket.on('delivered', payload => {
   console.log(`thank you for delivering ${payload.order.orderId} from all of us at ${payload.order.client_id}`);
